@@ -10,12 +10,12 @@ module Hpa2rdf
       [
        triple("@prefix", "rdf:", "<http://www.w3.org/1999/02/22-rdf-syntax-ns#>"),
        triple("@prefix", "rdfs:", "<http://www.w3.org/2000/01/rdf-schema#>"),
+       triple("@prefix", "obo:", "<http://purl.obolibrary.org/obo/>"),
        #triple("@prefix", "dcterms:", "<http://purl.org/dc/terms/>"),
        #triple("@prefix", "xsd:", "<http://www.w3.org/2001/XMLSchema#>"),
        #triple("@prefix", "skos:", "<http://www.w3.org/2004/02/skos/core#>"),
        #triple("@prefix", "sio:", "<http://semanticscience.org/resource/>"),
        #triple("@prefix", "so:", "<http://purl.org/obo/owl/SO#>"),
-       #triple("@prefix", "obo:", "<http://purl.obolibrary.org/obo/>"),
        #triple("@prefix", "faldo:", "<http://biohackathon.org/resource/faldo#>"),
        triple("@prefix", "hpa:", "<http://localhost/rdf#>"),
       ]
