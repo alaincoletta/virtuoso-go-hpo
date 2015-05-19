@@ -21,7 +21,8 @@ RUN curl \
 http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/misc/phenotype_annotation.tab \
 -o /opt/Annotations/phenotype_annotation.tab
 
-ADD virtuoso-import.sh /opt/Ontologies/virtuoso-import.sh
+ADD scripts /opt/Ontologies/scripts
+ADD samples /opt/Ontologies/samples
 
 CMD /opt/Ontologies/virtuoso-import.sh
 
