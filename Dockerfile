@@ -1,9 +1,9 @@
 #
-# Impoting Gene Ontology (GO) and Human Phenotype Ontology (HPO) into Virtuoso
+# Impoting Gene Ontology (GO), Human Phenotype Ontology (HPO) and HPO annotation into Virtuoso
 #
 # version 0.1
 
-FROM dockerfile/ruby:2.2
+FROM ruby:2.2
 MAINTAINER MISHIMA, Hiroyuki <missy@be.to>
 
 RUN mkdir -p /opt/Ontologies/HPO
@@ -34,7 +34,7 @@ http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/mi
 ADD scripts /opt/Ontologies/scripts
 ADD samples /opt/Ontologies/samples
 
-CMD /opt/Ontologies/virtuoso-import.sh
+CMD /opt/Ontologies/scripts/virtuoso-import.sh
 
 
 

@@ -3,7 +3,7 @@ A dockerfile to download Gene Ontology (GO), Human Phenotype Ontology (HPO), and
 
 ```bash
 $ sudo docker run -d -p 8890:8890 --name virtuoso inutano/virtuoso
-$ sudo docker run -it --link virtuoso:virtuoso -v ./samples:/opt/Ontologies/samples misshie/virtuoso-go-hpo
+$ sudo docker run -it --link virtuoso:virtuoso -v ${HOME}/samples:/opt/Ontologies/samples misshie/virtuoso-go-hpo
 $ curl \
      --form "query=SELECT COUNT(?s) FROM <http://purl.obolibrary.org/obo/go/go.owl> WHERE { ?s ?p ?o . }" \
      http://localhost:8890/sparql

@@ -1,6 +1,6 @@
 require 'securerandom'
 
-module Hpo2rdf
+module Hpa2rdf
 
   # This class is based on an achievement of the 1st RDF Summit in 2014: 
   # https://github.com/dbcls/rdfsummit/blob/master/insdc2ttl/insdc2ttl.rb
