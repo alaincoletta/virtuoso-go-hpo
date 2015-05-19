@@ -1,6 +1,7 @@
 module Hpa2rdf
 
   # Convert HPO annotation table to Turtle
+  # require ruby >=2.1.0
   class Hpa2ttl
 
     HPA =     
@@ -48,7 +49,7 @@ module Hpa2rdf
       ARGF.each_line do |row|
         row.chomp!
         next if row.start_with? '#'
-        puts_triples(Turtle.new_uuid, HPA.new(*(row.split("\t"))))
+        puts_triples(Turtle.new_uuid, HPA.new(*(row.scrub.split("\t"))))
         puts
       end
     end
