@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hp: <http://purl.obolibrary.org/obo/>
+
+SELECT ?s ?o
+FROM <http://purl.obolibrary.org/obo/hp.owl>
+WHERE 
+{ ?s ?p ?o .
+  FILTER regex(?s, "cleft", "i")
+ }
+LIMIT 10
