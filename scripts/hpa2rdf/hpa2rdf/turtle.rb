@@ -17,7 +17,7 @@ module Hpa2rdf
        #triple("@prefix", "sio:", "<http://semanticscience.org/resource/>"),
        #triple("@prefix", "so:", "<http://purl.org/obo/owl/SO#>"),
        #triple("@prefix", "faldo:", "<http://biohackathon.org/resource/faldo#>"),
-       triple("@prefix", "hpa:", "<http://localhost/rdf#>"),
+       triple("@prefix", "hpa:", "<http://misshie.jp/rdf/>"),
       ]
     end
 
