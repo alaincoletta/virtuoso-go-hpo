@@ -14,14 +14,7 @@ MAINTAINER MISHIMA, Hiroyuki <missy@be.to>
 
 # Install packages.
 RUN apt-get update && \
-    apt-get install -y automake gperf libtool flex bison libssl-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install ruby-2.2.2
-# based on http://qiita.com/k-shogo/items/592e243f9763d0c3b10a
-RUN \
-  DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    apt-get install -y automake gperf libtool flex bison libssl-dev \
     build-essential \
     curl \
     git-core \
@@ -32,6 +25,11 @@ RUN \
     libxslt1-dev \
     libyaml-dev \
     zlib1g-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install ruby-2.2.2
+# based on http://qiita.com/k-shogo/items/592e243f9763d0c3b10a
+RUN \
     curl -O http://ftp.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz && \
     tar -zxvf ruby-2.2.2.tar.gz && \
     cd ruby-2.2.2 && \
