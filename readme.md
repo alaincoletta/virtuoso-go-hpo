@@ -4,7 +4,7 @@ A dockerfile to invoke virtuoso to import downloaded and converted Gene Ontology
 # Build
 At the directory containing the Dockerfile file:
 ```bash
-$ sudo docker build -build -t virtuoso-go-hpo .
+$ sudo docker build -t virtuoso-go-hpo .
 ```
 
 # Run
