@@ -2,7 +2,8 @@
 vdir=/usr/local/virtuoso-opensource
 
 cd ${vdir}/var/lib/virtuoso
-chorn -R `whoammi` db
+chown -R `whoammi` db
+
 cd ${vdir}/var/lib/virtuoso/db
 ${vdir}/bin/virtuoso-t
 

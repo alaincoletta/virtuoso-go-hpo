@@ -54,19 +54,11 @@ RUN \
   make install && \
   rm -fr /tmp/virtuoso-opensource
 
-# Define working directory.
-WORKDIR /data
-
-# Start Virtuoso
-WORKDIR /usr/local/virtuoso-opensource/var/lib/virtuoso/
-RUN \
-  chown -R `whoami` db
-
 # Expose ports.
 #   - 8890: HTTP
 EXPOSE 8890
 
-##########
+# Start Virtuoso to import downloaded and converted data
 ADD scripts /opt/Ontologies/scripts
 ADD samples /opt/Ontologies/samples
 
