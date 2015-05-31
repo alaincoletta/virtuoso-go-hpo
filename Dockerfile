@@ -63,40 +63,19 @@ RUN \
   chown -R `whoami` db
 
 # Define default command.
-WORKDIR /usr/local/virtuoso-opensource/var/lib/virtuoso/db
-RUN \
-  /usr/local/virtuoso-opensource/bin/virtuoso-t +foreground
+#WORKDIR /usr/local/virtuoso-opensource/var/lib/virtuoso/db
+#RUN \
+#  /usr/local/virtuoso-opensource/bin/virtuoso-t
 
 # Expose ports.
 #   - 8890: HTTP
 EXPOSE 8890
 
 ##########
-RUN mkdir -p /opt/Ontologies/HPO
-RUN curl \
-http://compbio.charite.de/hudson/job/hpo/lastStableBuild/artifact/hp/hp.owl \
--o /opt/Ontologies/HPO/hp.owl
-
-RUN mkdir -p /opt/Ontologies/GO
-RUN curl \
-http://geneontology.org/ontology/go.owl \
--o /opt/Ontologies/GO/go.owl
-
-RUN mkdir -p /opt/Ontologies/HPA
-RUN curl \
-http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/misc/phenotype_annotation.tab \
--o /opt/Ontologies/HPA/phenotype_annotation.tab
-RUN curl \
-http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/misc/phenotype_annotation_hpoteam.tab \
--o /opt/Ontologies/HPA/phenotype_annotation_hpoteam.tab
-RUN curl \
-http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/misc/negative_phenotype_annotation.tab \
--o /opt/Ontologies/HPA/negative_phenotype_annotation.tab
-
 ADD scripts /opt/Ontologies/scripts
 ADD samples /opt/Ontologies/samples
 
-CMD /opt/Ontologies/scripts/virtuoso-import.sh
+#RUN /bin/bash -C /opt/Ontologies/scripts/download.sh
+#RUN /bin/bash -C /opt/Ontologies/scripts/convert.sh
 
-
-
+CMD ["/bin/bash", "-C", "/opt/Ontologies/scripts/import.sh"]
