@@ -22,6 +22,10 @@ module Hpa2rdf
     end
 
     def self.triple(s, p, o)
+      if (o.start_with?('"') && o.end_with?('"'))
+        o = '"' + o.gsub(/\A\"|\"\z/,'').gsub(/\"/, '\"') + '"'          
+      end
+
       [s, p, o].join("\t") + ' .'
     end
 
