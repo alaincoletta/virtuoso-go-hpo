@@ -15,4 +15,4 @@ ${vdir}/bin/isql \
     errors=stdout \
     /opt/Ontologies/scripts/import.sql
 
-tail -F ${vdir}//usr/local/virtuoso-opensource/var/lib/virtuoso/db/virtuoso.log
+tail -F ${vdir}/var/lib/virtuoso/db/virtuoso.log
