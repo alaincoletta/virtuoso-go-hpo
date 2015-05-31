@@ -9,7 +9,12 @@ $ sudo docker build -build -t virtuoso-go-hpo .
 
 # Run
 ```bash
-$ $ sudo docker run -it --link virtuoso:virtuoso -v ${HOME}/samples:/opt/Ontologies/samples virtuoso-go-hpo
+$ sudo docker run -it -p 8890:8890 virtuoso-go-hpo
+```
+
+The SPARQL endpoint is available at http://localhost:8890/sparql .
+
+```bash
 $ curl \
      --form "query=SELECT COUNT(?s) FROM <http://purl.obolibrary.org/obo/go/go.owl> WHERE { ?s ?p ?o . }" \
      http://localhost:8890/sparql
@@ -22,6 +27,10 @@ $ curl \
 ```
 
 # Author and License
-Author: MISHIMA, Hiroyuki / missy (at) be.to 
+Author:: MISHIMA, Hiroyuki / missy (at) be.to 
 
-License: The MIT License
+License:: The MIT License
+
+The Dockerfile is based on 1) inutano/virtuoso written by Tazro Inutano Ohta at https://registry.hub.docker.com/u/inutano/virtuoso , and 2) http://qiita.com/k-shogo/items/592e243f9763d0c3b10a .
+
+
