@@ -5,7 +5,7 @@ module Hpa2rdf
   class Hpa2ttl
 
     HPA =     
-      Struct.new(:db,            # 1required 	MIM
+      Struct.new(:db,            # 1required 	OMIM
                  :db_object_id,  # 2 required 	154700
                  :db_name,       # 3 required 	Achondrogenesis, type IB
                  :qualifier,     # 4 optional 	NOT
@@ -25,21 +25,29 @@ module Hpa2rdf
     end
 
     def puts_triples(uuid, hpa)
-      Turtle.puts_triple_q(uuid, "rdfs:label",        "#{hpa[:db]}:#{hpa[:db_object_id]}")
-      Turtle.puts_triple_q(uuid, "hpa:db",            hpa[:db])
-      Turtle.puts_triple(uuid, "hpa:db_object_id",  hpa[:db_object_id])
-      Turtle.puts_triple_q(uuid, "hpa:db_name",       hpa[:db_name])
-      Turtle.puts_triple_q(uuid, "hpa:qualifier",     hpa[:qualifier])
-      Turtle.puts_triple(uuid, "hpa:hpo_id",        "obo:HP_#{hpa[:hpo_id].split(':')[1]}")
-      Turtle.puts_triple_q(uuid, "hpa:db_reference",  hpa[:db_reference])
-      Turtle.puts_triple_q(uuid, "hpa:evidence_code", hpa[:evidence_code])
-      Turtle.puts_triple_q(uuid, "hpa:onset",         hpa[:onset])
-      Turtle.puts_triple_q(uuid, "hpa:frequency",     hpa[:frequency])
-      Turtle.puts_triple_q(uuid, "hpa:with",          hpa[:with])
-      Turtle.puts_triple_q(uuid, "hpa:aspect",        hpa[:aspect])
-      Turtle.puts_triple_q(uuid, "hpa:synomym",       hpa[:synonym])
-      Turtle.puts_triple_q(uuid, "hpa:date",          hpa[:date])
-      Turtle.puts_triple_q(uuid, "hpa:assigned_by",   hpa[:assigned_by])
+      Turtle.puts_triple_q(uuid, "rdfs:label",        "#{hpa.db}:#{hpa.db_object_id}")
+      Turtle.puts_triple_q(uuid, "hpa:db",            hpa.db)
+      # case hpa[:db]
+      # when "MIM", "OMIM"
+      #   #
+      # when "ORPHANET"
+      #   #
+      # when "DECIPHER"
+      #   #
+      # end
+      Turtle.puts_triple(uuid, "hpa:db_object_id",  hpa.db_object_id)
+      Turtle.puts_triple_q(uuid, "hpa:db_name",       hpa.db_name, "@en")
+      Turtle.puts_triple_q(uuid, "hpa:qualifier",     hpa.qualifier)
+      Turtle.puts_triple(uuid, "hpa:hpo_id",        "obo:HP_#{hpa.hpo_id.split(':')[1]}")
+      Turtle.puts_triple_q(uuid, "hpa:db_reference",  hpa.db_reference)
+      Turtle.puts_triple_q(uuid, "hpa:evidence_code", hpa.evidence_code)
+      Turtle.puts_triple_q(uuid, "hpa:onset",         hpa.onset)
+      Turtle.puts_triple_q(uuid, "hpa:frequency",     hpa.frequency)
+      Turtle.puts_triple_q(uuid, "hpa:with",          hpa.with)
+      Turtle.puts_triple_q(uuid, "hpa:aspect",        hpa.aspect)
+      Turtle.puts_triple_q(uuid, "hpa:synomym",       hpa.synonym)
+      Turtle.puts_triple_q(uuid, "hpa:date",          hpa.date)
+      Turtle.puts_triple_q(uuid, "hpa:assigned_by",   hpa.assigned_by)
     end                         
 
     def run

@@ -18,3 +18,10 @@ echo ">>> Convert negative_phenotype_annotation.tab to Turtle"
 ruby /opt/Ontologies/scripts/hpa2rdf/hpa2rdf.rb \
     /opt/Ontologies/scripts/hpa2rdf/negative_phenotype_annotation.tab \
     > ${dbdir}/negative_phenotype_annotation.ttl
+
+echo
+echo ">>> Convert Gendoo's OMIM Japanese translation data to Turtle"
+ruby /opt/Ontologies/scripts/gendoo2rdf/gendoo2rdf.rb \
+    /opt/Ontologies/scripts/gendoo2rdf/omim2ja.tab \
+    > ${dbdir}/omim2ja.ttl
+

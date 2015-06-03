@@ -18,3 +18,9 @@ curl \
 curl \
     http://compbio.charite.de/hudson/job/hpo.annotations/lastStableBuild/artifact/misc/negative_phenotype_annotation.tab \
     -o /opt/Ontologies/scripts/hpa2rdf/negative_phenotype_annotation.tab
+
+curl \
+    http://gendoo.dbcls.jp/data/omim2ja.tab \
+    -o /opt/Ontologies/scripts/gendoo2rdf/omim2ja.tab
+
+
