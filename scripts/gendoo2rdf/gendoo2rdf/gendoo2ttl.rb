@@ -16,6 +16,7 @@ module Gendoo2rdf
         Turtle.puts_triple_q(uuid, "hpa:db", "OMIM")
         Turtle.puts_triple(uuid, "hpa:db_object_id", omim2ja.omim)
         Turtle.puts_triple_q(uuid, "hpa:db_name", omim2ja.text, "@ja")
+        puts
       end
     end                         
 
@@ -27,7 +28,6 @@ module Gendoo2rdf
         row.chomp!
         next if row.start_with? '#'
         puts_triples(Turtle.new_uuid, OMIM2JA.new(*(row.scrub.split("\t"))))
-        puts
       end
     end
   
