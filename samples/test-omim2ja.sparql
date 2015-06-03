@@ -1,0 +1,26 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hpa: <http://misshie.jp/rdf/>
+PREFIX hpo: <http://purl.obolibrary.org/obo/>
+
+SELECT ?hpo_label, ?name_en, ?name_ja
+FROM NAMED <http://misshie.jp/rdf/phenotype_annotation.ttl>
+FROM NAMED <http://misshie.jp/rdf/omim2ja.ttl>
+FROM NAMED <http://purl.obolibrary.org/obo/hp.owl> 
+
+WHERE {
+  GRAPH <http://misshie.jp/rdf/phenotype_annotation.ttl> {
+    ?s rdfs:label "OMIM:119540" .
+    ?s hpa:db ?db .
+    ?s hpa:db_object_id ?obj_id .
+    ?s hpa:db_name ?name_en .
+  } .
+  GRAPH <http://purl.obolibrary.org/obo/hp.owl> {
+    ?hpo_id rdfs:label ?hpo_label .
+  } .
+  GRAPH <http://misshie.jp/rdf/omim2ja.ttl> {
+    ?s2 hpa:db ?db .
+    ?s2 hpa:db_object_id ?obj_id .
+    ?s2 hpa:db_name ?name_ja .
+  } .  	
+}

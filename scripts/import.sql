@@ -23,11 +23,11 @@ DB.DBA.TTLP_MT
 DB.DBA.TTLP_MT
 (file_to_string_output('/usr/local/virtuoso-opensource/var/lib/virtuoso/db/negative_phenotype_annotation.ttl'),
 '',
-'http://misshie.jp/rdfnegative_/phenotype_annotation.ttl');
+'http://misshie.jp/rdf/phenotype_annotation.ttl');
 
 DB.DBA.TTLP_MT
 (file_to_string_output('/usr/local/virtuoso-opensource/var/lib/virtuoso/db/omim2ja.ttl'),
 '',
-'http://misshie.jp/rdfnegative_/phenotype_annotation.ttl');
+'http://misshie.jp/rdf/omim2ja.ttl');
 
 EXIT;
