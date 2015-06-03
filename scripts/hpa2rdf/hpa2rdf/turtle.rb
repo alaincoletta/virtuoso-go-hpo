@@ -22,10 +22,6 @@ module Hpa2rdf
     end
 
     def self.triple(s, p, o)
-      if (o.start_with?('"') && o.end_with?('"'))
-        o = '"' + o.gsub(/\A\"|\"\z/,'').gsub(/\"/, '\"') + '"'          
-      end
-
       [s, p, o].join("\t") + ' .'
     end
 
@@ -37,6 +33,9 @@ module Hpa2rdf
 
     def self.puts_triple_q(s, p, o, lang="")
       unless [s, p, o].any?{|x| x.empty?}
+        if (o.start_with?('"') && o.end_with?('"'))
+          o = '"' + o.gsub(/\A\"|\"\z/,'').gsub(/\"/, '\"') + '"'          
+        end
         self.puts_triple(s, p, "\"#{o}\"#{lang}")      
       end
     end
