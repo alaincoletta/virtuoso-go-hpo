@@ -21,6 +21,11 @@ curl \
 
 curl \
     http://gendoo.dbcls.jp/data/omim2ja.tab \
-    -o /opt/Ontologies/scripts/gendoo2rdf/omim2ja.tab
+    -o /opt/Ontologies/scripts/gendoo2rdf/omim2ja.orig.tab
+
+nkf -w \
+    /opt/Ontologies/scripts/gendoo2rdf/omim2ja.orig.tab \
+    > /opt/Ontologies/scripts/gendoo2rdf/omim2ja.tab
+
 
 

@@ -24,7 +24,8 @@ RUN apt-get update && \
     libxml2-dev \
     libxslt1-dev \
     libyaml-dev \
-    zlib1g-dev && \
+    zlib1g-dev \
+    nkf && \
     rm -rf /var/lib/apt/lists/*
 
 # Install ruby-2.2.2
