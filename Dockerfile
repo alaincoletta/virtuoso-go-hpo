@@ -8,7 +8,7 @@
 # installing Virtuoso VERSION 0.1
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu
 
 MAINTAINER MISHIMA, Hiroyuki <missy@be.to>
 
